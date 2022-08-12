@@ -1,13 +1,5 @@
-import {
-  Anchor,
-  Card,
-  Checkbox,
-  createStyles,
-  Textarea,
-  Title,
-} from "@mantine/core";
+import { Card, createStyles, Textarea, Title } from "@mantine/core";
 import { NextPage } from "next";
-import Link from "next/link";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   wrapper: {
@@ -31,16 +23,15 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   form: {},
 }));
 
-const login: NextPage = () => {
+const signup: NextPage = () => {
   const { classes } = useStyles();
-
   return (
     <div className={classes.wrapper}>
       <div className={classes.art}></div>
       <div className={classes.login}>
         <div>
           <Title className={classes.title} order={1}>
-            Hello Again!
+            Welcome!
           </Title>
         </div>
         <div className={classes.form}>
@@ -48,12 +39,6 @@ const login: NextPage = () => {
             <Card.Section>
               <Textarea placeholder="email" label="email" />
               <Textarea placeholder="password" label="password" />
-              <div>
-                <Checkbox label="remember me" />
-                <Link href="/signup">
-                  <Anchor component="a">forgot password?</Anchor>
-                </Link>
-              </div>
             </Card.Section>
           </Card>
         </div>
@@ -62,4 +47,4 @@ const login: NextPage = () => {
   );
 };
 
-export default login;
+export default signup;
