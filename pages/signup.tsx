@@ -1,4 +1,4 @@
-import { Card, createStyles, Textarea, Title } from "@mantine/core";
+import { Button, Card, createStyles, Textarea, Title } from "@mantine/core";
 import { NextPage } from "next";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -39,8 +39,13 @@ const signup: NextPage = () => {
             <Card.Section>
               <Textarea placeholder="email" label="email" />
               <Textarea placeholder="password" label="password" />
+              <Textarea
+                placeholder="confirm password"
+                label="confirm password"
+              />
             </Card.Section>
           </Card>
+          <Button>Create Account</Button>
         </div>
       </div>
     </div>

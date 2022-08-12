@@ -14,22 +14,26 @@
     "@mantine/form": "^5.1.1",
     "@mantine/hooks": "^5.1.1",
     "@mantine/modals": "^5.1.1",
+    "@prisma/client": "^4.2.1",
     "@trpc/client": "^9.27.0",
     "@trpc/next": "^9.27.0",
     "@trpc/react": "^9.27.0",
     "@trpc/server": "^9.27.0",
+    "@types/express": "^4.17.13",
+    "express": "^4.18.1",
     "next": "12.2.4",
     "prisma": "^4.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-query": "3"
+    "react-query": "3",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "@types/node": "18.7.1",
+    "@types/node": "^18.7.2",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
-    "typescript": "4.7.4"
+    "typescript": "^4.7.4"
   }
 }
