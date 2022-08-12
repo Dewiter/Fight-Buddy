@@ -19,8 +19,6 @@ export const animate = keyframes({
   "70%, 90%": { width: "100%" },
 });
 
-export const background = BG;
-
 const useStyles = createStyles((theme, _params, getRef) => ({
   title: {
     position: "relative",
@@ -72,16 +70,15 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (redirectSeconds === 0) {
-      console.log("login");
       router.push("login");
       return;
     }
-
     setTimeout(() => {
       console.log(redirectSeconds);
       setRedirectSeconds((redirectSeconds) => redirectSeconds - 1);
     }, 2000);
-  }, [redirectSeconds]);
+  }, [redirectSeconds, router]);
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.shapeBlur}>
