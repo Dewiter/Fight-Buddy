@@ -2,6 +2,7 @@ import { Button, Card, createStyles, Textarea, Title, Text } from "@mantine/core
 import { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
+import type { user } from "./api/server/createUser"
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   wrapper: {
@@ -32,16 +33,35 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 const signup: NextPage = () => {
   const { classes } = useStyles();
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [passConf, setPassConf] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [pass, setPass] = useState<string>("");
+  const [passConf, setPassConf] = useState<string>("");
 
-  const createUser =  () => {
+  const createUser =  async () => {
     if (!email) console.log('no email passed')
     if (!pass) console.log('no password')
     if (pass !== passConf) console.log('pass does not match')
 
+    const payload: user = {
+      email: email,
+      password: pass
+    }
+
+    const myHeaders = new Headers()
+    const headers = {
+      method: 'POST',
+      headers: myHeaders,
+      mode: 'cors',
+      body: {
+        type: 'CreateUser',
+        payload: payload
+      }
+    }
+
+    const res = await fetch('/api/server/server', headers)
     
+
+
   }
 
   return (
