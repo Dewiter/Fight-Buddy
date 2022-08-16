@@ -1,5 +1,6 @@
-import { Button, Card, createStyles, Textarea, Title } from "@mantine/core";
+import { Button, Card, createStyles, Textarea, Title, Text } from "@mantine/core";
 import { NextPage } from "next";
+import Link from "next/link";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   wrapper: {
@@ -21,6 +22,10 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     height: "100%",
   },
   form: {},
+
+  signIn: {
+    color: "blue"
+  }
 }));
 
 const signup: NextPage = () => {
@@ -46,6 +51,9 @@ const signup: NextPage = () => {
             </Card.Section>
           </Card>
           <Button>Create Account</Button>
+        </div>
+        <div>
+          <Text>Already have an account? <Link href="/login"><a className={classes.signIn}>Sign in here</a></Link></Text>
         </div>
       </div>
     </div>

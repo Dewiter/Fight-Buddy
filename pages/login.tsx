@@ -4,6 +4,7 @@ import {
   Checkbox,
   createStyles,
   Textarea,
+  Text,
   Title,
 } from "@mantine/core";
 import { NextPage } from "next";
@@ -29,6 +30,10 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     height: "100%",
   },
   form: {},
+
+  signupLink:  {
+    color: "blue"
+  }
 }));
 
 const login: NextPage = () => {
@@ -56,6 +61,13 @@ const login: NextPage = () => {
               </div>
             </Card.Section>
           </Card>
+        </div>
+        <div>
+          <Text>Dont have an account? 
+            <Link href="/signup">
+              <a className={classes.signupLink}> Signup here!</a>
+            </Link>
+          </Text>
         </div>
       </div>
     </div>

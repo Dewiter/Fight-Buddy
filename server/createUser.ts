@@ -2,18 +2,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-type user = {
+export type user = {
   email: string;
   password: string;
 };
 
 const createUser = async (payload: user) => {
-  const user = await prisma.user.createUser({
-    email: payload.email,
-    password: payload.password,
+  const user = await prisma.user.create({
+    data : payload
   });
 
-  return "200";
+  return 200;
 };
 
 export default createUser;

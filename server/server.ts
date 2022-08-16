@@ -11,6 +11,7 @@ const server = (type: string, payload: any) => {
   ];
 
   stateMachine.map((state) => {
-    if (state.token === type) state.fn(payload);
+    if (state.token === type)  return state.fn(payload);
+    return 500
   });
 };
