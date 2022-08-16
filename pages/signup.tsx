@@ -1,6 +1,7 @@
 import { Button, Card, createStyles, Textarea, Title, Text } from "@mantine/core";
 import { NextPage } from "next";
 import Link from "next/link";
+import { useState } from "react";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   wrapper: {
@@ -28,8 +29,21 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   }
 }));
 
+
 const signup: NextPage = () => {
   const { classes } = useStyles();
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const [passConf, setPassConf] = useState("");
+
+  const createUser =  () => {
+    if (!email) console.log('no email passed')
+    if (!pass) console.log('no password')
+    if (pass !== passConf) console.log('pass does not match')
+
+    
+  }
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.art}></div>
@@ -42,15 +56,16 @@ const signup: NextPage = () => {
         <div className={classes.form}>
           <Card>
             <Card.Section>
-              <Textarea placeholder="email" label="email" />
-              <Textarea placeholder="password" label="password" />
+              <Textarea placeholder="email" label="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+              <Textarea placeholder="password" label="password" value={pass} onChange={(e) => setPass(e.target.value)}/>
               <Textarea
                 placeholder="confirm password"
                 label="confirm password"
+                value={passConf} onChange={(e) => setPassConf(e.target.value)}
               />
             </Card.Section>
           </Card>
-          <Button>Create Account</Button>
+          <Button onClick={createUser}>Create Account</Button>
         </div>
         <div>
           <Text>Already have an account? <Link href="/login"><a className={classes.signIn}>Sign in here</a></Link></Text>
